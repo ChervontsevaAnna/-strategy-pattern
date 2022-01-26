@@ -17,6 +17,16 @@ namespace SimUDuck
             Duck[] massiveDuck = new Duck[] { duck1, duck2, duck3, duck4};
             foreach (Duck d in massiveDuck)
             {
+                Console.WriteLine(d.display());
+                Console.WriteLine(d.swim());
+                if (d is Flyable) 
+                {
+                    Console.WriteLine((d as Flyable).fly());
+                }
+                if (d is Quackable)
+                {
+                    Console.WriteLine((d as Quackable).quack());
+                }
 
             }
            
