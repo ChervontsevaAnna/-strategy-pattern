@@ -8,9 +8,15 @@ namespace SimUDuck
 {
     public class DecoyDuck: Duck
     {
+        public DecoyDuck()
+        {
+            flyBehavior = new FlyNoWay();
+            quackBehavior = new MuteQuack();
+        }
+
         public override string display()
         {
-            return "Деревянная утка" + GetType();
+            return "Деревянная утка"  + this.GetType();
         }
     }
 }

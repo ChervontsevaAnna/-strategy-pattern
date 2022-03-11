@@ -15,23 +15,20 @@ namespace SimUDuck
             Duck duck3 = new RubberDuck();
             Duck duck4 = new DecoyDuck();
             Duck[] massiveDuck = new Duck[] { duck1, duck2, duck3, duck4};
+
             foreach (Duck d in massiveDuck)
             {
-                Console.WriteLine(d.display());
-                Console.WriteLine(d.swim());
-                if (d is Flyable) 
-                {
-                    Console.WriteLine((d as Flyable).fly());
-                }
-                if (d is Quackable)
-                {
-                    Console.WriteLine((d as Quackable).quack());
-                }
-
+                Console.WriteLine($"{d.swim() } " + $"{d.display()}" + $"{d.PerformFly()} " + $"{d.PerformQuack()}");
             }
-           
-            Console.ReadLine();
 
+            FlyBehavior flyBehavior = new FlyNoWay();
+            QuackBehavior quackBehavior = new Squeak();
+            duck1.SetQuackBehavior(quackBehavior);
+            duck1.SetFlyBehavior(flyBehavior);
+
+            Console.WriteLine($"{duck1.display()} " + $"{duck1.PerformFly()} " + $"{duck1.PerformQuack()}");
+
+            Console.ReadLine();
         }
     }
 }
